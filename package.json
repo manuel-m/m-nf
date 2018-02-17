@@ -5,8 +5,10 @@
     "main": "index.js",
     "scripts": {
         "build": "rollup -c",
+        "restore:db": "sqlite3 dist/m-nf.db < db/m-nf.sql",
+        "save:db": "sqlite3 dist/m-nf.db .dump > db/m-nf.sql",
         "dev": "rollup -c -w",
-        "start": "node dist/nf-server.js",
+        "start": "nodemon dist/nf-server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -29,6 +31,7 @@
         "uglify-es": "^3.3.9"
     },
     "dependencies": {
+        "better-sqlite3": "^4.1.0",
         "et-es": "0.0.1"
     }
 }

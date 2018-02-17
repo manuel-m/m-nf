@@ -1,7 +1,7 @@
-import { wrapResponse as wrap } from 'et-es/m-server/helpers';
+import { all } from '../db';
 
 export default {
     GET: {
-        '/api/missions': () => wrap([])
+        '/api/missions': () => all('SELECT * FROM missions')
     }
 };
