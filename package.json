@@ -4,10 +4,13 @@
     "description": "Efficiel note de frais ",
     "main": "index.js",
     "scripts": {
+        "prebuild":
+            "mkdir -p dist; cp front/nf-front.index.html dist/index.html",
         "build": "rollup -c",
+        "postbuild": "cd dist && python -m SimpleHTTPServer 8000",
+        "dev": "rollup -c -w",
         "restore:db": "sqlite3 dist/m-nf.db < db/m-nf.sql",
         "save:db": "sqlite3 dist/m-nf.db .dump > db/m-nf.sql",
-        "dev": "rollup -c -w",
         "start": "nodemon dist/nf-server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -23,15 +26,21 @@
     "homepage": "https://github.com/manuel-m/m-nf#readme",
     "devDependencies": {
         "nodemon": "^1.15.0",
-        "rollup": "^0.56.1",
+        "rollup": "^0.56.2",
+        "rollup-plugin-buble": "^0.19.2",
+        "rollup-plugin-commonjs": "^8.3.0",
         "rollup-plugin-eslint": "^4.0.0",
+        "rollup-plugin-node-globals": "^1.1.0",
         "rollup-plugin-node-resolve": "^3.0.3",
+        "rollup-plugin-replace": "^2.0.0",
         "rollup-plugin-uglify": "^3.0.0",
         "rollup-watch": "^4.3.1",
         "uglify-es": "^3.3.9"
     },
     "dependencies": {
         "better-sqlite3": "^4.1.0",
-        "et-es": "0.0.1"
+        "et-es": "0.0.1",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0"
     }
 }
