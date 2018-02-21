@@ -1,7 +1,9 @@
 // import cjs from 'rollup-plugin-commonjs';
 import { minify } from 'uglify-es';
+import json from 'rollup-plugin-json';
 import resolve from 'rollup-plugin-node-resolve';
 import uglify from 'rollup-plugin-uglify';
+//import eslint from 'rollup-plugin-eslint';
 
 var _outputDir = './dist';
 
@@ -13,7 +15,8 @@ export default {
         name: 'nf-server'
     },
     plugins: [
-        // eslint(),
+        json(),
+        //  eslint(),
         resolve({ extensions: ['.js'] }),
         uglify(
             {
