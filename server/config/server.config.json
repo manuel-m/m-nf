@@ -1,0 +1,5 @@
+{
+    "encoding": "utf-8",
+    "port": 8000,
+    "root": "./dist"
+}

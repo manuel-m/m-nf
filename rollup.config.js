@@ -1,10 +1,10 @@
 import { minify } from 'uglify-es';
+import eslint from 'rollup-plugin-eslint';
+import json from 'rollup-plugin-json';
+import resolve from 'rollup-plugin-node-resolve';
+import uglify from 'rollup-plugin-uglify';
 
-var eslint = require('rollup-plugin-eslint'),
-    // json = require('rollup-plugin-json'),
-    resolve = require('rollup-plugin-node-resolve'),
-    uglify = require('rollup-plugin-uglify'),
-    _outputDir = './dist';
+var _outputDir = './dist';
 
 export default [NF_SERVER_JS()];
 
@@ -17,8 +17,11 @@ function NF_SERVER_JS() {
             name: 'nf-server'
         },
         plugins: [
+            json(),
+            resolve({
+                extensions: ['.js', '.json']
+            }),
             eslint(),
-            resolve({ extensions: ['.js'] }),
             uglify(
                 {
                     compress: {

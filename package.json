@@ -25,6 +25,7 @@
         "nodemon": "^1.15.0",
         "rollup": "^0.56.1",
         "rollup-plugin-eslint": "^4.0.0",
+        "rollup-plugin-json": "^2.3.0",
         "rollup-plugin-node-resolve": "^3.0.3",
         "rollup-plugin-uglify": "^3.0.0",
         "rollup-watch": "^4.3.1",

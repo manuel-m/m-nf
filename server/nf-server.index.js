@@ -5,14 +5,12 @@ import missions from './api/missions.ctrl';
 
 import server from 'et-es/m-server/m-server.index';
 
+import config from './config/server.config.json';
+
 server({
     api: {
         filter: req_ => req_.url.indexOf('/api') === 0
     },
-    conf: {
-        encoding: 'utf-8',
-        port: 8000,
-        root: './dist'
-    },
+    conf: config,
     controllers: { contracts, expenses, expense_reports, missions }
 });
