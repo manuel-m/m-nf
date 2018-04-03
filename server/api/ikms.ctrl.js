@@ -2,6 +2,6 @@ import { all } from '../db';
 
 export default {
     GET: {
-        '/api/contracts': () => all('SELECT * FROM contracts ')
+        '/api/ikms': () => all('SELECT * FROM ikms')
     }
 };
